@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PbiMonitorModelStoreContainer" CdmEntityContainer="PbiMonitorEntities">
+    <EntitySetMapping Name="reports">
+      <EntityTypeMapping TypeName="PbiMonitorModel.report">
+        <MappingFragment StoreEntitySet="reports">
+          <ScalarProperty Name="isFromPbix" ColumnName="isFromPbix" />
+          <ScalarProperty Name="isOwnedByMe" ColumnName="isOwnedByMe" />
+          <ScalarProperty Name="LastTimeUpdated" ColumnName="LastTimeUpdated" />
+          <ScalarProperty Name="CallerPrincipalName" ColumnName="CallerPrincipalName" />
+          <ScalarProperty Name="workspaceId" ColumnName="workspaceId" />
+          <ScalarProperty Name="datasetId" ColumnName="datasetId" />
+          <ScalarProperty Name="embedUrl" ColumnName="embedUrl" />
+          <ScalarProperty Name="webUrl" ColumnName="webUrl" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="reportType" ColumnName="reportType" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_Security_Log">
+      <EntityTypeMapping TypeName="PbiMonitorModel.t_Security_Log">
+        <MappingFragment StoreEntitySet="t_Security_Log">
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Info" ColumnName="Info" />
+          <ScalarProperty Name="UserNameWeb" ColumnName="UserNameWeb" />
+          <ScalarProperty Name="InsertTimestamp" ColumnName="InsertTimestamp" />
+          <ScalarProperty Name="RecordsExported" ColumnName="RecordsExported" />
+          <ScalarProperty Name="User" ColumnName="User" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="PK" ColumnName="PK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t_Security_Users">
+      <EntityTypeMapping TypeName="PbiMonitorModel.t_Security_Users">
+        <MappingFragment StoreEntitySet="t_Security_Users">
+          <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+          <ScalarProperty Name="AdHocEditor" ColumnName="AdHocEditor" />
+          <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
+          <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="UserPrincipalName" ColumnName="UserPrincipalName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="PbiMonitorModel.user">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="LastTimeUpdated" ColumnName="LastTimeUpdated" />
+          <ScalarProperty Name="CallerPrincipalName" ColumnName="CallerPrincipalName" />
+          <ScalarProperty Name="groupUserAccessRight" ColumnName="groupUserAccessRight" />
+          <ScalarProperty Name="UserState" ColumnName="UserState" />
+          <ScalarProperty Name="emailAddress" ColumnName="emailAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user_permissions">
+      <EntityTypeMapping TypeName="PbiMonitorModel.user_permissions">
+        <MappingFragment StoreEntitySet="user_permissions">
+          <ScalarProperty Name="LastTimeUpdated" ColumnName="LastTimeUpdated" />
+          <ScalarProperty Name="CallerPrincipalName" ColumnName="CallerPrincipalName" />
+          <ScalarProperty Name="workspacetype" ColumnName="workspacetype" />
+          <ScalarProperty Name="workspaceid" ColumnName="workspaceid" />
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
+          <ScalarProperty Name="UserPrincipalName" ColumnName="UserPrincipalName" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="TruncateAll" FunctionName="PbiMonitorModel.Store.TruncateAll" />
+    <EntitySetMapping Name="schedulehistories">
+      <EntityTypeMapping TypeName="PbiMonitorModel.schedulehistory">
+        <MappingFragment StoreEntitySet="schedulehistory">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="LastTimeUpdated" ColumnName="LastTimeUpdated" />
+          <ScalarProperty Name="CallerPrincipalName" ColumnName="CallerPrincipalName" />
+          <ScalarProperty Name="endTime" ColumnName="endTime" />
+          <ScalarProperty Name="startTime" ColumnName="startTime" />
+          <ScalarProperty Name="refreshType" ColumnName="refreshType" />
+          <ScalarProperty Name="datasetId" ColumnName="datasetId" />
+          <ScalarProperty Name="requestId" ColumnName="requestId" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserActivities">
+      <EntityTypeMapping TypeName="PbiMonitorModel.UserActivity">
+        <MappingFragment StoreEntitySet="UserActivities">
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="LastTimeUpdated" ColumnName="LastTimeUpdated" />
+          <ScalarProperty Name="CallerPrincipalName" ColumnName="CallerPrincipalName" />
+          <ScalarProperty Name="JsonInfo" ColumnName="JsonInfo" />
+          <ScalarProperty Name="RequestURL" ColumnName="RequestURL" />
+          <ScalarProperty Name="PK" ColumnName="PK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="workspaces">
+      <EntityTypeMapping TypeName="PbiMonitorModel.workspace">
+        <MappingFragment StoreEntitySet="workspaces">
+          <ScalarProperty Name="LastTimeUpdated" ColumnName="LastTimeUpdated" />
+          <ScalarProperty Name="CallerPrincipalName" ColumnName="CallerPrincipalName" />
+          <ScalarProperty Name="MasterAccountAccess" ColumnName="MasterAccountAccess" />
+          <ScalarProperty Name="Accessible" ColumnName="Accessible" />
+          <ScalarProperty Name="IsOrphaned" ColumnName="IsOrphaned" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CapacityId" ColumnName="CapacityId" />
+          <ScalarProperty Name="IsOnDedicatedCapacity" ColumnName="IsOnDedicatedCapacity" />
+          <ScalarProperty Name="isReadOnly" ColumnName="isReadOnly" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="datasets">
+      <EntityTypeMapping TypeName="PbiMonitorModel.dataset">
+        <MappingFragment StoreEntitySet="datasets">
+          <ScalarProperty Name="LastTimeUpdated" ColumnName="LastTimeUpdated" />
+          <ScalarProperty Name="CallerPrincipalName" ColumnName="CallerPrincipalName" />
+          <ScalarProperty Name="workspaceid" ColumnName="workspaceid" />
+          <ScalarProperty Name="isOnPremGatewayRequired" ColumnName="isOnPremGatewayRequired" />
+          <ScalarProperty Name="isEffectiveIdentityRolesRequired" ColumnName="isEffectiveIdentityRolesRequired" />
+          <ScalarProperty Name="isEffectiveIdentityRequired" ColumnName="isEffectiveIdentityRequired" />
+          <ScalarProperty Name="isRefreshable" ColumnName="isRefreshable" />
+          <ScalarProperty Name="configuredBy" ColumnName="configuredBy" />
+          <ScalarProperty Name="addRowsAPIEnabled" ColumnName="addRowsAPIEnabled" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dashboards">
+      <EntityTypeMapping TypeName="PbiMonitorModel.dashboard">
+        <MappingFragment StoreEntitySet="dashboards">
+          <ScalarProperty Name="workspaceid" ColumnName="workspaceid" />
+          <ScalarProperty Name="LastTimeUpdated" ColumnName="LastTimeUpdated" />
+          <ScalarProperty Name="CallerPrincipalName" ColumnName="CallerPrincipalName" />
+          <ScalarProperty Name="isReadOnly" ColumnName="isReadOnly" />
+          <ScalarProperty Name="embedUrl" ColumnName="embedUrl" />
+          <ScalarProperty Name="displayName" ColumnName="displayName" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdUsers">
+      <EntityTypeMapping TypeName="PbiMonitorModel.AdUser">
+        <MappingFragment StoreEntitySet="AdUsers">
+          <ScalarProperty Name="LastTimeUpdated" ColumnName="LastTimeUpdated" />
+          <ScalarProperty Name="CallerPrincipalName" ColumnName="CallerPrincipalName" />
+          <ScalarProperty Name="JsonInfo" ColumnName="JsonInfo" />
+          <ScalarProperty Name="RequestURL" ColumnName="RequestURL" />
+          <ScalarProperty Name="PK" ColumnName="PK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_WS_DS_REP">
+      <EntityTypeMapping TypeName="PbiMonitorModel.vw_WS_DS_REP">
+        <MappingFragment StoreEntitySet="vw_WS_DS_REP">
+          <ScalarProperty Name="reportType" ColumnName="reportType" />
+          <ScalarProperty Name="reports_id" ColumnName="reports_id" />
+          <ScalarProperty Name="reports_name" ColumnName="reports_name" />
+          <ScalarProperty Name="dataset_type" ColumnName="dataset_type" />
+          <ScalarProperty Name="isRefreshable" ColumnName="isRefreshable" />
+          <ScalarProperty Name="addRowsAPIEnabled" ColumnName="addRowsAPIEnabled" />
+          <ScalarProperty Name="datasets_configuredBy" ColumnName="datasets_configuredBy" />
+          <ScalarProperty Name="datasets_id" ColumnName="datasets_id" />
+          <ScalarProperty Name="datasets_name" ColumnName="datasets_name" />
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
+          <ScalarProperty Name="workspaces_user" ColumnName="workspaces_user" />
+          <ScalarProperty Name="MasterAccountAccess" ColumnName="MasterAccountAccess" />
+          <ScalarProperty Name="WorkspaceState" ColumnName="WorkspaceState" />
+          <ScalarProperty Name="numbOfUsers" ColumnName="numbOfUsers" />
+          <ScalarProperty Name="numbOfReports" ColumnName="numbOfReports" />
+          <ScalarProperty Name="numbOfDatasets" ColumnName="numbOfDatasets" />
+          <ScalarProperty Name="IsOnDedicatedCapacity" ColumnName="IsOnDedicatedCapacity" />
+          <ScalarProperty Name="isReadOnly" ColumnName="isReadOnly" />
+          <ScalarProperty Name="WorkspaceType" ColumnName="WorkspaceType" />
+          <ScalarProperty Name="workspaces_id" ColumnName="workspaces_id" />
+          <ScalarProperty Name="workspaceName" ColumnName="workspaceName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

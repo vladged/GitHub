@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PbiMonitorModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="PbiMonitorEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="reports" EntityType="PbiMonitorModel.report" />
+    <EntitySet Name="t_Security_Log" EntityType="PbiMonitorModel.t_Security_Log" />
+    <EntitySet Name="t_Security_Users" EntityType="PbiMonitorModel.t_Security_Users" />
+    <EntitySet Name="users" EntityType="PbiMonitorModel.user" />
+    <EntitySet Name="user_permissions" EntityType="PbiMonitorModel.user_permissions" />
+    <FunctionImport Name="TruncateAll" />
+    <EntitySet Name="schedulehistories" EntityType="PbiMonitorModel.schedulehistory" />
+    <EntitySet Name="UserActivities" EntityType="PbiMonitorModel.UserActivity" />
+    <EntitySet Name="workspaces" EntityType="PbiMonitorModel.workspace" />
+    <EntitySet Name="datasets" EntityType="PbiMonitorModel.dataset" />
+    <EntitySet Name="dashboards" EntityType="PbiMonitorModel.dashboard" />
+    <EntitySet Name="AdUsers" EntityType="PbiMonitorModel.AdUser" />
+    <EntitySet Name="vw_WS_DS_REP" EntityType="PbiMonitorModel.vw_WS_DS_REP" />
+  </EntityContainer>
+  <EntityType Name="report">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="CallerPrincipalName" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="reportType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="webUrl" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="embedUrl" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+    <Property Name="datasetId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="workspaceId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CallerPrincipalName" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="LastTimeUpdated" Type="DateTime" Precision="0" />
+    <Property Name="isOwnedByMe" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="isFromPbix" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="t_Security_Log">
+    <Key>
+      <PropertyRef Name="PK" />
+    </Key>
+    <Property Name="PK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Action" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="User" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="RecordsExported" Type="Int32" />
+    <Property Name="InsertTimestamp" Type="DateTime" Precision="7" />
+    <Property Name="UserNameWeb" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Info" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Message" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="t_Security_Users">
+    <Key>
+      <PropertyRef Name="UserPrincipalName" />
+    </Key>
+    <Property Name="UserPrincipalName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DisplayName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ObjectId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsAdmin" Type="Boolean" />
+    <Property Name="AdHocEditor" Type="Boolean" />
+    <Property Name="LastModified" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="emailAddress" />
+      <PropertyRef Name="CallerPrincipalName" />
+    </Key>
+    <Property Name="emailAddress" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="UserState" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="groupUserAccessRight" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CallerPrincipalName" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="LastTimeUpdated" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="user_permissions">
+    <Key>
+      <PropertyRef Name="UserPrincipalName" />
+      <PropertyRef Name="workspaceid" />
+      <PropertyRef Name="CallerPrincipalName" />
+    </Key>
+    <Property Name="DisplayName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="UserPrincipalName" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="UserType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="workspaceid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="workspacetype" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CallerPrincipalName" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="LastTimeUpdated" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="schedulehistory">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="requestId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="datasetId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="refreshType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="startTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="endTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CallerPrincipalName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastTimeUpdated" Type="DateTime" Precision="0" />
+    <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="UserActivity">
+    <Key>
+      <PropertyRef Name="PK" />
+    </Key>
+    <Property Name="PK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RequestURL" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" />
+    <Property Name="JsonInfo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CallerPrincipalName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastTimeUpdated" Type="DateTime" Precision="3" />
+    <Property Name="StartDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="workspace">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="CallerPrincipalName" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="isReadOnly" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsOnDedicatedCapacity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CapacityId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+    <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="state" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsOrphaned" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Accessible" Type="Int32" />
+    <Property Name="MasterAccountAccess" Type="Int32" />
+    <Property Name="CallerPrincipalName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastTimeUpdated" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="dataset">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="CallerPrincipalName" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="addRowsAPIEnabled" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="configuredBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="isRefreshable" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="isEffectiveIdentityRequired" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="isEffectiveIdentityRolesRequired" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="isOnPremGatewayRequired" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="workspaceid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CallerPrincipalName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastTimeUpdated" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="dashboard">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="CallerPrincipalName" />
+    </Key>
+    <Property Name="id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="displayName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="embedUrl" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+    <Property Name="isReadOnly" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CallerPrincipalName" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="LastTimeUpdated" Type="DateTime" Precision="0" />
+    <Property Name="workspaceid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="AdUser">
+    <Key>
+      <PropertyRef Name="PK" />
+    </Key>
+    <Property Name="PK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RequestURL" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" />
+    <Property Name="JsonInfo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CallerPrincipalName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastTimeUpdated" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="vw_WS_DS_REP">
+    <Key>
+      <PropertyRef Name="workspaces_id" />
+      <PropertyRef Name="dataset_type" />
+    </Key>
+    <Property Name="workspaceName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="workspaces_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="WorkspaceType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="isReadOnly" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsOnDedicatedCapacity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="numbOfDatasets" Type="Int32" />
+    <Property Name="numbOfReports" Type="Int32" />
+    <Property Name="numbOfUsers" Type="Int32" />
+    <Property Name="WorkspaceState" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MasterAccountAccess" Type="Int32" />
+    <Property Name="workspaces_user" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="UserType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="datasets_name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="datasets_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="datasets_configuredBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="addRowsAPIEnabled" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="isRefreshable" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dataset_type" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="reports_name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="reports_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="reportType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

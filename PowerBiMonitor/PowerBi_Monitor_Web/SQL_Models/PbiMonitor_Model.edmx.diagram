@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7452d773708d4cc5b280fc14eb626286" Name="Diagram1" >
+        <EntityTypeShape EntityType="PbiMonitorModel.report" Width="1.5" PointX="2.375" PointY="0.5" />
+        <EntityTypeShape EntityType="PbiMonitorModel.t_Security_Log" Width="1.5" PointX="0.5" PointY="4" />
+        <EntityTypeShape EntityType="PbiMonitorModel.t_Security_Users" Width="1.5" PointX="4.125" PointY="4.125" />
+        <EntityTypeShape EntityType="PbiMonitorModel.user" Width="1.5" PointX="2.375" PointY="3.5" />
+        <EntityTypeShape EntityType="PbiMonitorModel.user_permissions" Width="1.5" PointX="5.75" PointY="0.5" />
+        <EntityTypeShape EntityType="PbiMonitorModel.schedulehistory" Width="1.5" PointX="7.375" PointY="0.5" />
+        <EntityTypeShape EntityType="PbiMonitorModel.UserActivity" Width="1.5" PointX="2.25" PointY="5.75" />
+        <EntityTypeShape EntityType="PbiMonitorModel.workspace" Width="1.5" PointX="4.125" PointY="0.5" />
+        <EntityTypeShape EntityType="PbiMonitorModel.dataset" Width="1.5" PointX="0.5" PointY="0.5" />
+        <EntityTypeShape EntityType="PbiMonitorModel.dashboard" Width="1.5" PointX="7.375" PointY="3.5" />
+        <EntityTypeShape EntityType="PbiMonitorModel.AdUser" Width="1.5" PointX="0.625" PointY="6.875" />
+        <EntityTypeShape EntityType="PbiMonitorModel.vw_WS_DS_REP" Width="1.5" PointX="5.75" PointY="3.125" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

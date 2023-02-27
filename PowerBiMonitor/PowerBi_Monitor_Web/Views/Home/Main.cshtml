@@ -1,0 +1,135 @@
+﻿@model PbiMonitor_Web.Models.AccessTokenParam
+@{
+    //Layout = null;
+
+
+}
+
+<!doctype html>
+
+<html ng-app="main">
+
+<head>
+    <title>Power Bi Monitor</title>
+    <!-- <meta charset="utf-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="description" content="">
+     <meta name="viewport" content="initial-scale=1" />
+        -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.7.0/angular.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.7.0/angular-touch.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.7.0/angular-animate.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.7.0/angular-aria.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.0/angular-messages.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script>
+
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!-- Power BI Library -->
+    <script src="~/Scripts/powerbi.js"></script>
+
+    <!--AngularJS controller-->
+
+    <script src="~/app/HTML/Controllers/Monitor_Controller.js"></script>
+
+    <script src="~/app/HTML/Controllers/Services.js"></script>
+
+    <script src="~/app/HTML/Controllers/GridController.js"></script>
+
+    <script src="~/app/HTML/Services/JsonParser.js"></script>
+
+    <link href="~/app/HTML/css/site.css" rel="stylesheet" />
+
+    <!-- Promise -->
+    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+</head>
+<body>
+    <input type="hidden" id="authorizationCode" name="ClientSecret" value="@Model.authorizationCode" />
+    <input type="hidden" id="IfPowerBiAdmin" name="IfPowerBiAdmin" value="@Model.IfPowerBiAdmin" />
+    <div ng-cloak ng-controller="ReceiptController">
+
+        <md-tabs md-dynamic-height md-border-bottom>
+            <md-tab label="PowerBi Main Objects Report" style="font-size:smaller" md-no-pagination>
+                <div class="md-padding">
+                    <div flex layout="row">
+                        <div ID="reportContainer" style="height: 90vh;width:80%" ng-show="!loading">
+
+                        </div>
+                        <div ng-show="loading">
+                            <img src="~/Images/Loading.gif" style="height:75vh" />
+                        </div>
+                        <div flex layout="column" layout-align="start start" ng-show="ShowAdminTab">
+                            <div>
+                                <md-button ng-click="ClearAllData($event)" class="md-raised" style="text-transform: none;background-color:orange" ng-show="access_token">Clear All Data from DataBase</md-button>
+                            </div>
+                            <div>
+                                <md-button ng-click="GetPbiData($event)" class="md-raised" style="text-transform: none;background-color:lightgray" ng-show="access_token">Load Pbi Data from Server to Database</md-button>
+                            </div>
+                            <div>
+                                <md-button ng-click="GetScheduleHistory($event)" class="md-raised" style="text-transform: none;background-color:lightgreen" ng-show="access_token">Load  Refresh History Into DataBase</md-button>
+                            </div>
+                            <div>
+                                <md-button ng-click="GetUserActivitiesLast30Days($event)" class="md-raised" style="text-transform: none;background-color:lightgreen" ng-show="access_token">GetUserActivitiesLast30Days</md-button>
+                            </div>
+                            <div>
+                                <md-button ng-click="GetAllAdUsers($event)" class="md-raised" style="text-transform: none;background-color:lightgreen" ng-show="RRauthToken">Get All Ad Users</md-button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </md-tab>
+            <!--
+            <md-tab label="PowerBi Organiser" style="font-size:10px" md-no-pagination md-on-select="GetPbiMonitorData(null)" ng-if="ShowAdminTab">
+                <div ng-controller="GridCtrl" flex layout="column">
+
+
+
+                  <table style="background-color:burlywood; ">
+
+                      <tr>
+                          <th>Workspace Name</th>
+                          <th>Workspace State</th>
+                          <th>Delete Workspace</th>
+                          <th>Dataset Name</th>
+                          <th>Dataset Configured By</th>
+                          <th>Delete Dataset</th>
+                          <th>Report Name</th>
+                          <th>Report Report</th>
+
+                      </tr>
+                      <tr ng-repeat="row in PbiMonitorData">
+                          <td> {{row.workspaces_name}}</td>
+                          <td> {{row.worksapce_state}}</td>
+                          <td> <input type="button" ng-click="DeleteCurrentWorkspace(row)" value="Delete Workspace"></td>
+                          <td> {{row.datasets_name}}</td>
+                          <td> {{row.datasets_configuredBy}}</td>
+                          <td> <input type="button" ng-click="DeleteCurrentDataset(row)" value="Delete Dataset"></td>
+                          <td> {{row.reports_name}}</td>
+                          <td> <input type="button" ng-click="DeleteCurrentReport(row)" value="Delete Report"></td>
+
+                      </tr>
+                  </table>
+
+
+                  <div class="spinner" ng-show="loading" style="height:75vh">
+                      <img src="~/Images/Loading.gif" />
+                  </div>
+
+
+               </div>
+
+            </md-tab>
+                   -->
+        </md-tabs>
+    </div>
+
+</body>
+</html>
+
+

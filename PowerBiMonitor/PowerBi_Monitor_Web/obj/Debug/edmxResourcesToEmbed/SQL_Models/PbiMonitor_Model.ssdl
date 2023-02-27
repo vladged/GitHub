@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PbiMonitorModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AdUsers">
+    <Key>
+      <PropertyRef Name="PK" />
+    </Key>
+    <Property Name="PK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RequestURL" Type="varchar" MaxLength="1500" />
+    <Property Name="JsonInfo" Type="varchar(max)" />
+    <Property Name="CallerPrincipalName" Type="varchar" MaxLength="50" />
+    <Property Name="LastTimeUpdated" Type="datetime" />
+  </EntityType>
+  <EntityType Name="dashboards">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="CallerPrincipalName" />
+    </Key>
+    <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="displayName" Type="varchar" MaxLength="500" />
+    <Property Name="embedUrl" Type="varchar" MaxLength="4000" />
+    <Property Name="isReadOnly" Type="varchar" MaxLength="50" />
+    <Property Name="CallerPrincipalName" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="LastTimeUpdated" Type="smalldatetime" />
+    <Property Name="workspaceid" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="datasets">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="CallerPrincipalName" />
+    </Key>
+    <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="500" />
+    <Property Name="addRowsAPIEnabled" Type="varchar" MaxLength="50" />
+    <Property Name="configuredBy" Type="varchar" MaxLength="50" />
+    <Property Name="isRefreshable" Type="varchar" MaxLength="50" />
+    <Property Name="isEffectiveIdentityRequired" Type="varchar" MaxLength="50" />
+    <Property Name="isEffectiveIdentityRolesRequired" Type="varchar" MaxLength="50" />
+    <Property Name="isOnPremGatewayRequired" Type="varchar" MaxLength="50" />
+    <Property Name="workspaceid" Type="varchar" MaxLength="50" />
+    <Property Name="CallerPrincipalName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastTimeUpdated" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="reports">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="CallerPrincipalName" />
+    </Key>
+    <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="reportType" Type="varchar" MaxLength="50" />
+    <Property Name="name" Type="varchar" MaxLength="500" />
+    <Property Name="webUrl" Type="varchar" MaxLength="500" />
+    <Property Name="embedUrl" Type="varchar" MaxLength="4000" />
+    <Property Name="datasetId" Type="varchar" MaxLength="50" />
+    <Property Name="workspaceId" Type="varchar" MaxLength="50" />
+    <Property Name="CallerPrincipalName" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="LastTimeUpdated" Type="smalldatetime" />
+    <Property Name="isOwnedByMe" Type="varchar" MaxLength="10" />
+    <Property Name="isFromPbix" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="schedulehistory">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="requestId" Type="varchar" MaxLength="50" />
+    <Property Name="datasetId" Type="varchar" MaxLength="50" />
+    <Property Name="refreshType" Type="varchar" MaxLength="50" />
+    <Property Name="startTime" Type="varchar" MaxLength="50" />
+    <Property Name="endTime" Type="varchar" MaxLength="50" />
+    <Property Name="CallerPrincipalName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastTimeUpdated" Type="smalldatetime" />
+    <Property Name="status" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="t_Security_Log">
+    <Key>
+      <PropertyRef Name="PK" />
+    </Key>
+    <Property Name="PK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Action" Type="varchar" MaxLength="50" />
+    <Property Name="User" Type="varchar" MaxLength="250" />
+    <Property Name="RecordsExported" Type="int" />
+    <Property Name="InsertTimestamp" Type="datetime2" Precision="7" />
+    <Property Name="UserNameWeb" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Info" Type="varchar" MaxLength="100" />
+    <Property Name="Message" Type="varchar" MaxLength="4000" />
+  </EntityType>
+  <EntityType Name="t_Security_Users">
+    <Key>
+      <PropertyRef Name="UserPrincipalName" />
+    </Key>
+    <Property Name="UserPrincipalName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DisplayName" Type="varchar" MaxLength="50" />
+    <Property Name="ObjectId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserType" Type="varchar" MaxLength="50" />
+    <Property Name="IsAdmin" Type="bit" />
+    <Property Name="AdHocEditor" Type="bit" />
+    <Property Name="LastModified" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="user_permissions">
+    <Key>
+      <PropertyRef Name="UserPrincipalName" />
+      <PropertyRef Name="workspaceid" />
+      <PropertyRef Name="CallerPrincipalName" />
+    </Key>
+    <Property Name="DisplayName" Type="varchar" MaxLength="250" />
+    <Property Name="UserPrincipalName" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="UserType" Type="varchar" MaxLength="50" />
+    <Property Name="workspaceid" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="workspacetype" Type="varchar" MaxLength="50" />
+    <Property Name="CallerPrincipalName" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="LastTimeUpdated" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="UserActivities">
+    <Key>
+      <PropertyRef Name="PK" />
+    </Key>
+    <Property Name="PK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RequestURL" Type="varchar" MaxLength="1500" />
+    <Property Name="JsonInfo" Type="varchar(max)" />
+    <Property Name="CallerPrincipalName" Type="varchar" MaxLength="50" />
+    <Property Name="LastTimeUpdated" Type="datetime" />
+    <Property Name="StartDate" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="emailAddress" />
+      <PropertyRef Name="CallerPrincipalName" />
+    </Key>
+    <Property Name="emailAddress" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="UserState" Type="varchar" MaxLength="250" />
+    <Property Name="groupUserAccessRight" Type="varchar" MaxLength="50" />
+    <Property Name="CallerPrincipalName" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="LastTimeUpdated" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="workspaces">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="CallerPrincipalName" />
+    </Key>
+    <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="500" />
+    <Property Name="isReadOnly" Type="varchar" MaxLength="50" />
+    <Property Name="IsOnDedicatedCapacity" Type="varchar" MaxLength="50" />
+    <Property Name="CapacityId" Type="varchar" MaxLength="50" />
+    <Property Name="Description" Type="varchar" MaxLength="4000" />
+    <Property Name="type" Type="varchar" MaxLength="50" />
+    <Property Name="state" Type="varchar" MaxLength="50" />
+    <Property Name="IsOrphaned" Type="varchar" MaxLength="50" />
+    <Property Name="Accessible" Type="int" />
+    <Property Name="MasterAccountAccess" Type="int" />
+    <Property Name="CallerPrincipalName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastTimeUpdated" Type="smalldatetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'PbiMonitor.dbo.vw_WS_DS_REP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vw_WS_DS_REP">
+    <Key>
+      <PropertyRef Name="workspaces_id" />
+      <PropertyRef Name="dataset_type" />
+    </Key>
+    <Property Name="workspaceName" Type="varchar" MaxLength="500" />
+    <Property Name="workspaces_id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="WorkspaceType" Type="varchar" MaxLength="50" />
+    <Property Name="isReadOnly" Type="varchar" MaxLength="50" />
+    <Property Name="IsOnDedicatedCapacity" Type="varchar" MaxLength="50" />
+    <Property Name="numbOfDatasets" Type="int" />
+    <Property Name="numbOfReports" Type="int" />
+    <Property Name="numbOfUsers" Type="int" />
+    <Property Name="WorkspaceState" Type="varchar" MaxLength="50" />
+    <Property Name="MasterAccountAccess" Type="int" />
+    <Property Name="workspaces_user" Type="varchar" MaxLength="250" />
+    <Property Name="UserType" Type="varchar" MaxLength="50" />
+    <Property Name="datasets_name" Type="varchar" MaxLength="500" />
+    <Property Name="datasets_id" Type="varchar" MaxLength="50" />
+    <Property Name="datasets_configuredBy" Type="varchar" MaxLength="50" />
+    <Property Name="addRowsAPIEnabled" Type="varchar" MaxLength="50" />
+    <Property Name="isRefreshable" Type="varchar" MaxLength="50" />
+    <Property Name="dataset_type" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="reports_name" Type="varchar" MaxLength="500" />
+    <Property Name="reports_id" Type="varchar" MaxLength="50" />
+    <Property Name="reportType" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Function Name="TruncateAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="PbiMonitorModelStoreContainer">
+    <EntitySet Name="AdUsers" EntityType="Self.AdUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="dashboards" EntityType="Self.dashboards" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="datasets" EntityType="Self.datasets" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="reports" EntityType="Self.reports" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="schedulehistory" EntityType="Self.schedulehistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="t_Security_Log" EntityType="Self.t_Security_Log" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="t_Security_Users" EntityType="Self.t_Security_Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="user_permissions" EntityType="Self.user_permissions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserActivities" EntityType="Self.UserActivities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="workspaces" EntityType="Self.workspaces" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vw_WS_DS_REP" EntityType="Self.vw_WS_DS_REP" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vw_WS_DS_REP].[workspaceName] AS [workspaceName], 
+    [vw_WS_DS_REP].[workspaces_id] AS [workspaces_id], 
+    [vw_WS_DS_REP].[WorkspaceType] AS [WorkspaceType], 
+    [vw_WS_DS_REP].[isReadOnly] AS [isReadOnly], 
+    [vw_WS_DS_REP].[IsOnDedicatedCapacity] AS [IsOnDedicatedCapacity], 
+    [vw_WS_DS_REP].[numbOfDatasets] AS [numbOfDatasets], 
+    [vw_WS_DS_REP].[numbOfReports] AS [numbOfReports], 
+    [vw_WS_DS_REP].[numbOfUsers] AS [numbOfUsers], 
+    [vw_WS_DS_REP].[WorkspaceState] AS [WorkspaceState], 
+    [vw_WS_DS_REP].[MasterAccountAccess] AS [MasterAccountAccess], 
+    [vw_WS_DS_REP].[workspaces_user] AS [workspaces_user], 
+    [vw_WS_DS_REP].[UserType] AS [UserType], 
+    [vw_WS_DS_REP].[datasets_name] AS [datasets_name], 
+    [vw_WS_DS_REP].[datasets_id] AS [datasets_id], 
+    [vw_WS_DS_REP].[datasets_configuredBy] AS [datasets_configuredBy], 
+    [vw_WS_DS_REP].[addRowsAPIEnabled] AS [addRowsAPIEnabled], 
+    [vw_WS_DS_REP].[isRefreshable] AS [isRefreshable], 
+    [vw_WS_DS_REP].[dataset_type] AS [dataset_type], 
+    [vw_WS_DS_REP].[reports_name] AS [reports_name], 
+    [vw_WS_DS_REP].[reports_id] AS [reports_id], 
+    [vw_WS_DS_REP].[reportType] AS [reportType]
+    FROM [dbo].[vw_WS_DS_REP] AS [vw_WS_DS_REP]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

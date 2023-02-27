@@ -1,0 +1,286 @@
+body {
+    padding-top: 0px;
+    font-size: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+table {
+    border-collapse: collapse;
+}
+
+table, td, th {
+    border: 1px solid black;
+}
+
+md-select {
+    background-color: white;
+    color: black;
+    border: 1px solid #666666;
+}
+md-tabs {
+    border: 1px solid #666666;
+    /*font-size: 15px;*/
+    font-family: 'Roboto', sans-serif;
+}
+md-tab {
+    border: 1px solid #666666;
+}
+
+md-input-container {
+    display: inline-block;
+    position: relative;
+    padding: 1px;
+    margin: 5px 0;
+    vertical-align: middle;
+}
+.md-no-sticky {
+    height: 20px;
+    font-size:small;
+    font-weight:bolder;
+}
+.md-button {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    min-height: 36px;
+    min-width: 88px;
+    line-height: 36px;
+    vertical-align: middle;
+    align-items: center;
+    text-align: center;
+    border-radius: 3px;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 0;
+    padding: 0 6px;
+    margin: 1px 1px;
+    background: transparent;
+    color: currentColor;
+    white-space: nowrap;
+    text-transform: uppercase;
+    font-weight: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-variant: inherit;
+    font-family: inherit;
+    text-decoration: none;
+    overflow: hidden;
+    -webkit-transition: box-shadow .4s cubic-bezier(.25,.8,.25,1),background-color .4s cubic-bezier(.25,.8,.25,1);
+    transition: box-shadow .4s cubic-bezier(.25,.8,.25,1),background-color .4s cubic-bezier(.25,.8,.25,1);
+}
+
+md-list-item, md-list-item .md-list-item-inner, md-checkbox {
+    min-height: 20px;
+    height: 25px;
+}
+
+
+.toolbarseparator {
+    background-color: rgba(5, 19, 31, 0.59);
+    font-style: normal;
+    font-size: x-small;
+    padding-right: 5px;
+}
+
+.navbar {
+    /*background-color: rgb(155, 156, 145);*/
+    /*color: white;*/
+    padding-top: 0px;
+    font-style: normal;
+    font-size: x-small;
+    padding-right: 5px;
+    border: 1px solid #666666;
+}
+
+
+
+@media screen and (min-width: 768px) {
+  .jumbotron {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-right: 6px;
+    padding-left: 6px;
+  }
+  .jumbotron h1,
+  .jumbotron .h1 {
+    font-size: 40px;
+  }
+}
+
+.intro {
+  display: table;
+  width: 100%;
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.jumbotron {
+  width: 100%;
+  display: table-cell;
+  text-align: center;
+}
+
+.description {
+  display: inline-block;
+  text-align: left;
+}
+.benefits li:before {
+  content: '✓';
+  margin-left: -1em;
+  margin-right: .300em;
+  color: green;
+}
+
+.benefits li {
+  list-style: none;
+  line-height: 30px;
+}
+
+
+@media (min-width: 768px) {
+  .navbar-brand {
+    padding: 15px 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  .navbar-nav > li > a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+}
+
+@media (min-width: 768px) {
+  .navbar-text {
+    float: left;
+    margin: 15px;
+  }
+}
+
+.nav-gitter-link{
+  padding-right: 20px;
+}
+
+.nav-gitter-image{
+  vertical-align: inherit;
+}
+
+.space-before {
+  padding-top: 8px;
+}
+
+
+.pink {
+  color: pink;
+}
+.blue {
+  color: blue;
+}
+
+.btn-large {
+  margin: 5px 10px;
+}
+
+.btn-group2 {
+  margin-top: 30px;
+}
+
+
+.benefits {
+  font-size: 18px;
+}
+
+.intro-body {
+  display: table;
+  width: 100%;
+}
+
+.feature {
+  display: block;
+  text-align: left;
+  padding-top: 10px;
+}
+
+.feature-heading {
+  padding-top: 0px;
+  text-align: center;
+  min-width: 100%;
+}
+/* From Bootstrap Responsive */
+
+.visible-phone {
+  display: none !important;
+}
+
+.visible-tablet {
+  display: none !important;
+}
+
+.hidden-desktop {
+  display: none !important;
+}
+
+.visible-desktop {
+  display: inherit !important;
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+  .hidden-desktop {
+    display: inherit !important;
+  }
+  .visible-desktop {
+    display: none !important ;
+  }
+  .visible-tablet {
+    display: inherit !important;
+  }
+  .hidden-tablet {
+    display: none !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .hidden-desktop {
+    display: inherit !important;
+  }
+  .visible-desktop {
+    display: none !important;
+  }
+  .visible-phone {
+    display: inherit !important;
+  }
+  .hidden-phone {
+    display: none !important;
+  }
+}
+
+.modal {
+    display: block;
+}
+.modal-body:before,
+.modal-body:after {
+    display: table;
+    content: " ";
+}
+.modal-header:before,
+.modal-header:after {
+    display: table;
+    content: " ";
+}
+p.modal-message {
+  margin: 10px 0;
+}
+.compiled-css {
+  margin-bottom: 10px;
+}
+
+.info-link {
+  color: #34EFBB;
+}
+
+.gitter-chat-embed{
+  /*XXX:HACK to get the chat to show up over the header bar*/
+  z-index: 5000 important!;
+}
